@@ -1,0 +1,11 @@
+{
+	"liferayDir": "../liferay-portal-7.2.10-ga1",
+	"webpack": {
+		"rules": [
+			{
+				"test": "src\\/.*\\.js$",
+				"use": "babel-loader"
+			}
+		]
+	}
+}
