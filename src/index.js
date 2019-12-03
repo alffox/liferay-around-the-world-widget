@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import locationsData from "./locations.json";
+
 import AtwHeader from "./modules/AtwHeader.es";
 
 /**
@@ -12,6 +14,9 @@ import AtwHeader from "./modules/AtwHeader.es";
  * @param  {Object} params a hash with values of interest to the portlet
  * @return {void}
  */
+
+console.log(locationsData);
+
 export default function main({ portletElementId }) {
   ReactDOM.render(
     <div className="container-fluid">
