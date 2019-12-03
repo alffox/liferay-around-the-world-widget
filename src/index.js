@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-//import AppComponent from "./AppComponent";
 import AtwHeader from "./modules/AtwHeader.es";
 
 /**
@@ -13,21 +12,10 @@ import AtwHeader from "./modules/AtwHeader.es";
  * @param  {Object} params a hash with values of interest to the portlet
  * @return {void}
  */
-export default function main({
-  //   portletNamespace,
-  //   contextPath,
-  portletElementId
-  //   configuration
-}) {
+export default function main({ portletElementId }) {
   ReactDOM.render(
     <div className="container-fluid">
       <AtwHeader />
-      {/* <AppComponent
-        portletNamespace={portletNamespace}
-        contextPath={contextPath}
-        portletElementId={portletElementId}
-        configuration={configuration}
-      /> */}
     </div>,
     document.getElementById(portletElementId)
   );

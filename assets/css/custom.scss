@@ -1,0 +1,110 @@
+body,
+html {
+  overflow-x: hidden;
+}
+
+#portlet_npmreactliferayaroundtheworld {
+
+  .favicon {
+    width: 50px;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+  }
+
+  div.navbar-brand {
+    color: #fff !important;
+  }
+
+  .timedate {
+    color: #fff;
+    font-size: 1.125rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.25em;
+  }
+
+  .grow-logo {
+    width: 40px;
+  }
+
+  .weather {
+    color: #fff;
+    background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
+  }
+
+  .btn-temperature {
+    color: #fff;
+  }
+
+  .weather-icon-main {
+    width: 64px;
+    height: 64px;
+    min-height: 64px;
+  }
+
+  .weather-icon-next-days {
+    width: 35px;
+    height: 35px;
+    min-height: 28px;
+  }
+
+  .next-days {
+    width: 20%;
+    font-size: 0.75rem;
+  }
+
+  .webcam-picture {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .carousel-indicators li {
+    background-color: #999;
+    background-color: rgba(70, 70, 70, 0.25);
+  }
+
+  .carousel-indicators .active {
+    background-color: #444;
+  }
+
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .carousel-control-prev-icon {
+    margin-left: 1.5rem;
+  }
+
+  .carousel-control-next-icon {
+    margin-right: 1.5rem;
+  }
+
+  .card {
+    display: inline-block;
+  }
+
+  .card-header {
+    padding: 0.25rem 1.25rem;
+  }
+
+  .flag-navbar {
+    width: 50px;
+    height: 37px;
+    min-height: 37px;
+  }
+
+  .flag-button {
+    pointer-events: none;
+    cursor: pointer;
+  }
+}
