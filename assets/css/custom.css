@@ -3,8 +3,6 @@ html {
   overflow-x: hidden;
 }
 
-#portlet_npmreactliferayaroundtheworld {
-
   .favicon {
     width: 50px;
   }
@@ -107,4 +105,3 @@ html {
     pointer-events: none;
     cursor: pointer;
   }
-}

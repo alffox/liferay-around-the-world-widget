@@ -17,11 +17,21 @@ import AtwHeader from "./modules/AtwHeader.es";
 
 console.log(locationsData);
 
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="container-fluid">
+        <AtwHeader />
+      </div>
+    );
+  }
+}
+
 export default function main({ portletElementId }) {
-  ReactDOM.render(
-    <div className="container-fluid">
-      <AtwHeader />
-    </div>,
-    document.getElementById(portletElementId)
-  );
+  ReactDOM.render(<App />, document.getElementById(portletElementId));
 }
