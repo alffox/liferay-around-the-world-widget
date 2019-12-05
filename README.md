@@ -1,6 +1,6 @@
 # Liferay Around the World React portlet
 
-![A paper airplane](https://github.com/alffox/npm-react-liferay-around-the-world-portlet/blob/master/src/main/resources/META-INF/resources/images/logo.svg)
+![A paper airplane](https://github.com/alffox/liferay-around-the-world-widget/blob/master/assets/images/logo.svg)
 
 Liferay Around the World is a Liferay 7.2 DXP widget showing information for Liferay locations around the world: https://www.liferay.com/locations
 
@@ -26,6 +26,8 @@ The **Navigation bar** displays the currently selected location, the current dat
 
 **Time and Date** will appear under the flags list at the top and they will indicate the current time and date on the clicked location
 
+**Pictures** shows selected pictures for the selected country
+
 **Official Grow page** has a hyperlink to the official Grow page for that location on the Liferay's internal Grow website
 
 **Weather** displays the weather and temperature at the selected location and forecasts for the next 5 days. Buttons to switch between Celsius and Fahrenheit are also provided
@@ -36,11 +38,9 @@ The **Navigation bar** displays the currently selected location, the current dat
 
 **Wiki** shows the first information for the selected country from Wikipedia.org
 
-**Pictures** shows selected pictures for the selected country
-
 ## Technical details
 
-This project was bootstrapped with the generator-liferay-js [https://github.com/liferay/liferay-js-toolkit/wiki/How-to-use-generator-liferay-js), using the React Widget template.
+This project was bootstrapped with the `generator-liferay-js` [https://github.com/liferay/liferay-js-toolkit/wiki/How-to-use-generator-liferay-js), using the React Widget template.
 The app is optimized for being used on mobile devices through [Bootstrap CSS](https://getbootstrap.com/docs/4.1/getting-started/introduction/) and [Clay UI](https://clayui.com/)
 
 The backend runs through: https://github.com/alffox/around-the-world-backend/blob/master/index.js
@@ -48,7 +48,7 @@ The backend runs through: https://github.com/alffox/around-the-world-backend/blo
 ### API / Credit
 
 - [TimeZoneDB.com](https://timezonedb.com/)
+- [Unsplash](https://unsplash.com/)
 - [OpenWeatherMap](https://openweathermap.org/)
 - [GoogleMaps API](https://developers.google.com/maps/documentation/)
 - [Webcams.travel](https://www.webcams.travel/)
-- [Unsplash](https://unsplash.com/)
