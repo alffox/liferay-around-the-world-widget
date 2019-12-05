@@ -53,7 +53,7 @@ The **Navigation bar** displays the currently selected location, the current dat
 
 ## Technical details
 
-This project was bootstrapped with the `generator-liferay-js` [https://github.com/liferay/liferay-js-toolkit/wiki/How-to-use-generator-liferay-js), using the React Widget template.
+This project was bootstrapped with the `generator-liferay-js` https://github.com/liferay/liferay-js-toolkit/wiki/How-to-use-generator-liferay-js, using the React Widget template.
 The app is optimized for being used on mobile devices through [Bootstrap CSS](https://getbootstrap.com/docs/4.1/getting-started/introduction/) and [Clay UI](https://clayui.com/)
 
 The backend runs through: https://github.com/alffox/around-the-world-backend/blob/master/index.js
