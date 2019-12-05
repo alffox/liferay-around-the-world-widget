@@ -1,8 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import axios from "axios";
+
 import AtwHeader from "./modules/AtwHeader.es";
 import AtwFlags from "./modules/AtwFlags.es";
+import AtwNavbar from "./modules/AtwNavbar.es";
 
 /**
  * This is the main entry point of the portlet.
@@ -13,6 +16,8 @@ import AtwFlags from "./modules/AtwFlags.es";
  * @param  {Object} params a hash with values of interest to the portlet
  * @return {void}
  */
+
+const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
 
 const locationsData = {
   locations: [
@@ -580,13 +585,17 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       locationsData.locations[lastLocationIndex].ISO_3166_1_alpha_2
     );
+    this.fetchTime(
+      locationsData.locations[lastLocationIndex].timezone_database_name
+    );
   }
 
   handleClick(
     currentLocationIndex,
     currentLocation,
     currentCountry,
-    currentLocationISO_3166_1_alpha_2
+    currentLocationISO_3166_1_alpha_2,
+    currentTimeZoneDBName
   ) {
     this.setLocationIndex(currentLocationIndex);
     this.fetchCurrentLocation(currentLocation);
@@ -594,6 +603,7 @@ class App extends React.Component {
     this.fetchCurrentLocationISO_3166_1_alpha_2(
       currentLocationISO_3166_1_alpha_2
     );
+    this.fetchTime(currentTimeZoneDBName);
   }
 
   setLocationIndex(currentLocationIndex) {
@@ -618,6 +628,26 @@ class App extends React.Component {
     });
   }
 
+  fetchTime(currentTimeZoneDBName) {
+    const URL =
+      RESTAPIServer +
+      "/TimeDateEndpoint?format=json&by=zone&zone=" +
+      currentTimeZoneDBName;
+
+    this.setState({ isTimeDateLoading: true }, () => {
+      axios
+        .get(URL)
+        .then(response => response.data)
+        .then(data => {
+          this.setState({
+            isTimeDateLoading: false,
+            date: data.formatted.substr(0, data.formatted.indexOf(" ")),
+            time: data.formatted.substr(data.formatted.indexOf(" ") + 1)
+          });
+        });
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -625,6 +655,16 @@ class App extends React.Component {
         <AtwFlags
           locationsData={locationsData}
           handleClick={this.handleClick}
+        />
+        <AtwNavbar
+          currentLocation={this.state.currentLocation}
+          currentCountry={this.state.currentCountry}
+          currentLocationISO_3166_1_alpha_2={
+            this.state.currentLocationISO_3166_1_alpha_2
+          }
+          isTimeDateLoading={this.state.isTimeDateLoading}
+          date={this.state.date}
+          time={this.state.time}
         />
       </div>
     );
