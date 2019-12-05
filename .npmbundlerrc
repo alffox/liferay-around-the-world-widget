@@ -1,4 +1,12 @@
 {
+  "sources": ["src"],
+  "rules": [
+    {
+      "test": "\\.json$",
+      "exclude": "node_modules",
+      "use": ["json-loader"]
+    }
+  ],
 	"create-jar": {
 		"output-dir": "dist",
 		"features": {
