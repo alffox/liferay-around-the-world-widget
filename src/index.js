@@ -6,6 +6,8 @@ import axios from "axios";
 import AtwHeader from "./modules/AtwHeader.es";
 import AtwFlags from "./modules/AtwFlags.es";
 import AtwNavbar from "./modules/AtwNavbar.es";
+import AtwLocalData from "./modules/AtwLocalData.es";
+import AtwFooter from "./modules/AtwFooter.es";
 
 /**
  * This is the main entry point of the portlet.
@@ -569,6 +571,8 @@ class App extends React.Component {
     super();
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
+    this.setCelsius = this.setCelsius.bind(this);
+    this.setFahrenheit = this.setFahrenheit.bind(this);
   }
 
   componentDidMount() {
@@ -588,6 +592,31 @@ class App extends React.Component {
     this.fetchTime(
       locationsData.locations[lastLocationIndex].timezone_database_name
     );
+    this.fetchGrowURL(locationsData.locations[lastLocationIndex].grow_URL);
+    this.fetchWeather(
+      locationsData.locations[lastLocationIndex].country,
+      locationsData.locations[lastLocationIndex].location.lat,
+      locationsData.locations[lastLocationIndex].location.lon
+    );
+    this.fetchWeatherForecast(
+      locationsData.locations[lastLocationIndex].country,
+      locationsData.locations[lastLocationIndex].location.lat,
+      locationsData.locations[lastLocationIndex].location.lon
+    );
+    this.fetchMapCoordinates(
+      locationsData.locations[lastLocationIndex].location.lat,
+      locationsData.locations[lastLocationIndex].location.lon
+    );
+    this.fetchWebCamData(
+      locationsData.locations[lastLocationIndex].location.lat,
+      locationsData.locations[lastLocationIndex].location.lon,
+      locationsData.locations[lastLocationIndex].ISO_3166_1_alpha_2
+    );
+    this.fetchWikiData(
+      locationsData.locations[lastLocationIndex].wiki.description,
+      locationsData.locations[lastLocationIndex].wiki.URL
+    );
+    this.fetchPictures(locationsData.locations[lastLocationIndex].country);
   }
 
   handleClick(
@@ -595,7 +624,12 @@ class App extends React.Component {
     currentLocation,
     currentCountry,
     currentLocationISO_3166_1_alpha_2,
-    currentTimeZoneDBName
+    currentTimeZoneDBName,
+    currentGrowURL,
+    currentWikiDescription,
+    currentWikiURL,
+    currentLatitude,
+    currentLongitude
   ) {
     this.setLocationIndex(currentLocationIndex);
     this.fetchCurrentLocation(currentLocation);
@@ -604,10 +638,39 @@ class App extends React.Component {
       currentLocationISO_3166_1_alpha_2
     );
     this.fetchTime(currentTimeZoneDBName);
+    this.fetchGrowURL(currentGrowURL);
+    this.fetchWeather(currentCountry, currentLatitude, currentLongitude);
+    this.fetchWeatherForecast(
+      currentCountry,
+      currentLatitude,
+      currentLongitude
+    );
+    this.fetchMapCoordinates(currentLatitude, currentLongitude);
+    this.fetchWebCamData(
+      currentLatitude,
+      currentLongitude,
+      currentLocationISO_3166_1_alpha_2
+    );
+    this.fetchWikiData(currentWikiDescription, currentWikiURL);
+    this.fetchPictures(currentCountry);
   }
 
   setLocationIndex(currentLocationIndex) {
     localStorage.setItem("lastLocationIndex", currentLocationIndex);
+  }
+
+  setCelsius() {
+    if (!this.state.isCelsius)
+      this.setState({
+        isCelsius: true
+      });
+  }
+
+  setFahrenheit() {
+    if (this.state.isCelsius)
+      this.setState({
+        isCelsius: false
+      });
   }
 
   fetchCurrentLocation(currentLocation) {
@@ -648,6 +711,130 @@ class App extends React.Component {
     });
   }
 
+  fetchGrowURL(currentGrowURL) {
+    this.setState({
+      currentGrowURL: currentGrowURL
+    });
+  }
+
+  fetchWeather(currentCountry, currentLatitude, currentLongitude) {
+    const weatherURL =
+      RESTAPIServer +
+      "/weatherEndpoint?lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude +
+      "&units=metric";
+
+    this.setState({ isWeatherLoading: true }, () => {
+      axios
+        .get(weatherURL)
+        .then(response => response.data)
+        .then(data => {
+          this.setState({
+            isWeatherLoading: false,
+            currentWeatherCountry: currentCountry,
+            currentTemperatureCelsius: Math.round(data.main.temp),
+            currentTemperatureFahrenheit: Math.round(
+              (data.main.temp * 9) / 5 + 32
+            ),
+            isCelsius: true,
+            currentWeatherDescription: data.weather[0].main,
+            currentIconURL:
+              "https://openweathermap.org/img/w/" +
+              data.weather[0].icon +
+              ".png"
+          });
+        });
+    });
+  }
+
+  fetchWeatherForecast(currentCountry, currentLatitude, currentLongitude) {
+    const weatherForecastURL =
+      RESTAPIServer +
+      "/forecastEndpoint?lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude +
+      "&units=metric";
+
+    axios
+      .get(weatherForecastURL)
+      .then(response => response.data)
+      .then(data => {
+        this.setState({
+          currentForecastCountry: currentCountry,
+          forecastData: data.list.filter(item =>
+            item.dt_txt.includes("12:00:00")
+          )
+        });
+      });
+  }
+
+  fetchMapCoordinates(currentLatitude, currentLongitude) {
+    this.setState({
+      currentLatitude: currentLatitude,
+      currentLongitude: currentLongitude
+    });
+  }
+
+  fetchWebCamData(
+    currentLatitude,
+    currentLongitude,
+    currentLocationISO_3166_1_alpha_2
+  ) {
+    const webCamDataURL =
+      RESTAPIServer +
+      "/webcamEndpoint?countryCode=" +
+      currentLocationISO_3166_1_alpha_2 +
+      "&lat=" +
+      currentLatitude +
+      "&lon=" +
+      currentLongitude;
+
+    this.setState({ isWebCamLoading: true }, () => {
+      axios
+        .get(webCamDataURL)
+        .then(response => response.data)
+        .then(data => {
+          this.setState({
+            isWebCamLoading: false,
+            webCamData: data.result.webcams
+          });
+        });
+    });
+  }
+
+  fetchWikiData(currentWikiDescription, currentWikiURL) {
+    this.setState({
+      currentWikiDescription: currentWikiDescription,
+      currentWikiURL: currentWikiURL
+    });
+  }
+
+  fetchPictures(currentCountry) {
+    const randomPicturesPageNumber = Math.floor(Math.random() * 20); //helps to display mostly new pictures upon refreshing the page
+
+    const picturesDataURL =
+      RESTAPIServer +
+      "/picturesEndpoint?page=" +
+      randomPicturesPageNumber +
+      "&query=" +
+      currentCountry;
+
+    this.setState({ isPicturesLoading: true }, () => {
+      axios
+        .get(picturesDataURL)
+        .then(response => response.data)
+        .then(data => {
+          this.setState({
+            isPicturesLoading: false,
+            picturesData: data.results
+          });
+        });
+    });
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -666,6 +853,31 @@ class App extends React.Component {
           date={this.state.date}
           time={this.state.time}
         />
+        <AtwLocalData
+          isWeatherLoading={this.state.isWeatherLoading}
+          isWebCamLoading={this.state.isWebCamLoading}
+          isPicturesLoading={this.state.isPicturesLoading}
+          currentLocation={this.state.currentLocation}
+          currentGrowURL={this.state.currentGrowURL}
+          currentWeatherCountry={this.state.currentWeatherCountry}
+          currentTemperatureCelsius={this.state.currentTemperatureCelsius}
+          currentTemperatureFahrenheit={this.state.currentTemperatureFahrenheit}
+          setCelsius={this.setCelsius}
+          setFahrenheit={this.setFahrenheit}
+          isCelsius={this.state.isCelsius}
+          currentWeatherDescription={this.state.currentWeatherDescription}
+          currentIconURL={this.state.currentIconURL}
+          currentForecastCountry={this.state.currentForecastCountry}
+          forecastData={this.state.forecastData}
+          currentLatitude={this.state.currentLatitude}
+          currentLongitude={this.state.currentLongitude}
+          webCamData={this.state.webCamData}
+          currentCountry={this.state.currentCountry}
+          currentWikiDescription={this.state.currentWikiDescription}
+          currentWikiURL={this.state.currentWikiURL}
+          picturesData={this.state.picturesData}
+        />
+        <AtwFooter />
       </div>
     );
   }
