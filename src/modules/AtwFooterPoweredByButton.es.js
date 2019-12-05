@@ -10,7 +10,7 @@ class AtwFooterPoweredByButton extends React.Component {
     Liferay.Util.openWindow({
       dialog: {
         bodyContent:
-          "<p><a href='https://timezonedb.com/'>TimeZoneDB.com</a></p><p><a href='https://newsapi.org/'>News API</a></p><p><a href='https://openweathermap.org/'>OpenWeatherMap</a></p><p><a href='https://developers.google.com/maps/documentation/'>  GoogleMaps API</a></p><p><a href='https://www.webcams.travel/'>Webcams.travel</a></p><p><a href='https://unsplash.com/'>Unsplash</a></p>",
+          "<p><a href='https://timezonedb.com/'>TimeZoneDB.com</a></p><p><a href='https://openweathermap.org/'>OpenWeatherMap</a></p><p><a href='https://developers.google.com/maps/documentation/'>  GoogleMaps API</a></p><p><a href='https://www.webcams.travel/'>Webcams.travel</a></p><p><a href='https://unsplash.com/'>Unsplash</a></p>",
         centered: true,
         headerContent: "<h2 className='modal-title'>Powered by ...</h2>",
         modal: true,
