@@ -11,7 +11,7 @@ class AtwWeatherForecasts extends React.Component {
             return (
               <AtwWeatherForecast
                 key={index}
-                forecastDay={day.dt_txt.substring(10, 8)}
+                forecastDay={day.dt_txt.substring(0, 10)}
                 forecastDayTemperatureCelsius={Math.round(day.main.temp)}
                 forecastDayTemperatureFahrenheit={Math.round(
                   (day.main.temp * 9) / 5 + 32

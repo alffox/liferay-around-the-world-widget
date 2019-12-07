@@ -1,10 +1,16 @@
 import React from "react";
 
+import Moment from "react-moment";
+
 class AtwWeatherForecast extends React.Component {
   render() {
     return (
       <div className="next-days">
-        <span className="font-weight-bold">{this.props.forecastDay}</span>
+        <span className="font-weight-bold">
+          <Moment format="DD">{this.props.forecastDay}</Moment>
+          <br />
+          <Moment format="ddd">{this.props.forecastDay}</Moment>
+        </span>
         <br />
         <img
           className="weather-icon-next-days"
