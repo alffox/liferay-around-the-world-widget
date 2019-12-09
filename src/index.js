@@ -243,7 +243,7 @@ class App extends React.Component {
     const webCamDataURL =
       RESTAPIServer +
       "/webcamEndpoint?countryCode=" +
-      currentLocationISO_3166_1_alpha_2 +
+      currentLocationISO_3166_1_alpha_2.toUpperCase() +
       "&lat=" +
       currentLatitude +
       "&lon=" +
