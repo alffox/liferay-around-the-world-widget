@@ -10,7 +10,7 @@ class AtwWebCamCard extends React.Component {
       <div className="card w-100 mt-1">
         <AtwCardHeader
           iconName="camera"
-          cardKey="Nearby Web Cams"
+          cardKey="Country Webcams"
           APIAttribution="Webcams.travel"
           APIURL="https://www.webcams.travel/"
         />
