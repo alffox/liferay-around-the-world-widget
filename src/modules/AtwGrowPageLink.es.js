@@ -7,7 +7,7 @@ class AtwGrowPageLink extends React.Component {
         <div className="card-body d-flex align-items-center">
           <img
             className="float-left img-fluid favicon pr-1 grow-logo"
-            src="/o/npm-react-liferay-around-the-world-portlet/images/grow_logo.png"
+            src="/o/liferay-around-the-world/images/grow_logo.png"
             alt="Grow logo"
           />
           Official Grow page:{" "}
