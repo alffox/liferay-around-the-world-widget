@@ -21,7 +21,7 @@ Where are my co-workers worldwide living? What's going on at their location righ
 3) Verify that the Liferay home directory at https://github.com/alffox/liferay-around-the-world-widget/blob/master/.npmbuildrc#L2 is correctly set, if not, change it
 4) Run `npm install` to install the dependencies
 5) Go to https://github.com/alffox/liferay-around-the-world-widget/blob/master/src/modules/MapContainer.es.js#L31 and replace `redacted` with a valid Google Maps API Key. The key should have a Maps JavaScript API and should be allowed to run on the Liferay URL where you will place the widget 
-6) Run `npm start deploy` to build and deploy the widget
+6) Run `npm run deploy` to build and deploy the widget
 7) Wait for the Liferay logs to print:
 
 ```
