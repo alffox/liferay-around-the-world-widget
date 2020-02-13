@@ -122,7 +122,7 @@ class App extends React.Component {
     this.fetchPictures(currentCountry);
   }
 
-  filterList(event) { // Featire inspired by https://www.jondjones.com/frontend/react/components/how-to-build-a-filterable-search-bar-in-react
+  filterList(event) { // Feature inspired by https://www.jondjones.com/frontend/react/components/how-to-build-a-filterable-search-bar-in-react
     let currentFlags = this.state.initialFlags;
     currentFlags = currentFlags.filter((location) => {
       return location.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
