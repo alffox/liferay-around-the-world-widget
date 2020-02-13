@@ -2,6 +2,7 @@ import React from "react";
 
 import AtwLoadingSpinner from "./AtwLoadingSpinner.es";
 import AtwCurrentLocation from "./AtwCurrentLocation.es";
+import AtwSearchBox from "./AtwSearchBox.es";
 import AtwTimeDate from "./AtwTimeDate.es";
 
 class AtwNavbar extends React.Component {
@@ -20,9 +21,8 @@ class AtwNavbar extends React.Component {
         ) : (
             <AtwTimeDate date={this.props.date} time={this.props.time} />
           )}
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Filter Locations ..." aria-label="Search" onChange={this.props.filterList} />
-        </form>
+        <AtwSearchBox
+          filterList={this.props.filterList} />
       </nav>
     );
   }
