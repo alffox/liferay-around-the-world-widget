@@ -18,8 +18,11 @@ class AtwNavbar extends React.Component {
         {this.props.isTimeDateLoading ? (
           <AtwLoadingSpinner />
         ) : (
-          <AtwTimeDate date={this.props.date} time={this.props.time} />
-        )}
+            <AtwTimeDate date={this.props.date} time={this.props.time} />
+          )}
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2" type="search" placeholder="Filter Locations ..." aria-label="Search" onChange={this.props.filterList} />
+        </form>
       </nav>
     );
   }

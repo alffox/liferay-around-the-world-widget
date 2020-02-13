@@ -4,36 +4,12 @@ import AtwFlag from "./AtwFlag.es";
 
 class AtwFlags extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      initialFlags: [],
-      currentFlags: []
-    };
-    this.filterList = this.filterList.bind(this);
-  }
-
-  filterList(event) {
-    let currentFlags = this.state.initialFlags;
-    currentFlags = currentFlags.filter((location) => {
-      return location.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
-    });
-    this.setState({ currentFlags: currentFlags });
-  }
-
-  componentDidMount() {
-    this.setState({
-      initialFlags: this.props.content,
-      currentFlags: this.props.content
-    })
-  }
-
   render() {
     return (
       <div className="row">
         <div className="col-md-12 text-center">
           <h3 className="location-tags">
-            {this.state.currentFlags.map((location, index) => {
+            {this.props.currentFlags.map((location, index) => {
               return (
                 <AtwFlag
                   key={index}
@@ -59,9 +35,6 @@ class AtwFlags extends React.Component {
               );
             })}
           </h3>
-          <form>
-            <input type="text" placeholder="Search" onChange={this.filterList} />
-          </form>
         </div>
       </div>
     );

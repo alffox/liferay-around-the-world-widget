@@ -26,13 +26,23 @@ const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      initialFlags: [],
+      currentFlags: []
+    };
     this.handleClick = this.handleClick.bind(this);
     this.setCelsius = this.setCelsius.bind(this);
     this.setFahrenheit = this.setFahrenheit.bind(this);
+    this.filterList = this.filterList.bind(this);
   }
 
   componentDidMount() {
+
+    this.setState({
+      initialFlags: locationsData.locations,
+      currentFlags: locationsData.locations
+    })
+
     if (localStorage.getItem("lastLocationIndex") === null) {
       localStorage.setItem("lastLocationIndex", 0);
     }
@@ -110,6 +120,14 @@ class App extends React.Component {
     );
     this.fetchWikiData(currentWikiDescription, currentWikiURL);
     this.fetchPictures(currentCountry);
+  }
+
+  filterList(event) {
+    let currentFlags = this.state.initialFlags;
+    currentFlags = currentFlags.filter((location) => {
+      return location.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
+    });
+    this.setState({ currentFlags: currentFlags });
   }
 
   setLocationIndex(currentLocationIndex) {
@@ -299,9 +317,10 @@ class App extends React.Component {
         <AtwFlags
           locationsData={locationsData}
           handleClick={this.handleClick}
-          content={locationsData.locations}
+          currentFlags={this.state.currentFlags}
         />
         <AtwNavbar
+          filterList={this.filterList}
           currentLocation={this.state.currentLocation}
           currentCountry={this.state.currentCountry}
           currentLocationISO_3166_1_alpha_2={
