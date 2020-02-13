@@ -315,9 +315,8 @@ class App extends React.Component {
       <div className="container-fluid">
         <AtwHeader />
         <AtwFlags
-          locationsData={locationsData}
-          handleClick={this.handleClick}
           currentFlags={this.state.currentFlags}
+          handleClick={this.handleClick}
         />
         <AtwNavbar
           filterList={this.filterList}
