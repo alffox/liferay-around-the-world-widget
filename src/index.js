@@ -299,6 +299,7 @@ class App extends React.Component {
         <AtwFlags
           locationsData={locationsData}
           handleClick={this.handleClick}
+          content={locationsData.locations}
         />
         <AtwNavbar
           currentLocation={this.state.currentLocation}
