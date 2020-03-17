@@ -16,7 +16,7 @@ class AtwSearchBox extends React.Component {
 
     render() {
         return (
-            <form className="form-inline" onSubmit={this.preventSubmit}>
+            <form className="form" onSubmit={this.preventSubmit}>
                 <input className="form-control mr-sm-2" type="search" placeholder="Find Location ..." aria-label="Search" onChange={this.props.filterList} />
             </form>
         );
