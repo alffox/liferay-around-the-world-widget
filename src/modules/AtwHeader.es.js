@@ -1,5 +1,7 @@
 import React from "react";
 
+import AtwIcon from "./AtwIcon.es";
+
 class AtwHeader extends React.Component {
   render() {
     return (
@@ -13,6 +15,12 @@ class AtwHeader extends React.Component {
           <h1 className="title-super position-relative d-none d-sm-block">
             Liferay Around the World
           </h1>
+          <button className="btn btn-dark position-absolute dark-mode" data-toggle="tooltip" title="Dark Mode" onClick={this.props.toggleDarkMode}>
+            <AtwIcon
+              classes="lexicon-icon"
+              iconName="moon"
+            />
+          </button>
         </div>
       </header>
     );

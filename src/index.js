@@ -29,12 +29,14 @@ class App extends React.Component {
     super();
     this.state = {
       initialFlags: [],
-      currentFlags: []
+      currentFlags: [],
+      isDarkMode: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.setCelsius = this.setCelsius.bind(this);
     this.setFahrenheit = this.setFahrenheit.bind(this);
     this.filterList = this.filterList.bind(this);
+    this.toggleDarkMode = this.toggleDarkMode.bind(this);
   }
 
   componentDidMount() {
@@ -147,6 +149,13 @@ class App extends React.Component {
       this.setState({
         isCelsius: false
       });
+  }
+
+  toggleDarkMode() {
+    // this.setState({
+    //   isDarkMode: !isDarkMode
+    // })
+    console.log("clicked!");
   }
 
   fetchCurrentLocation(currentLocation) {
@@ -314,7 +323,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <AtwHeader />
+        <AtwHeader
+          toggleDarkMode={this.toggleDarkMode}
+        />
         <AtwFlags
           currentFlags={this.state.currentFlags}
           handleClick={this.handleClick}
