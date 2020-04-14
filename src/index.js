@@ -152,10 +152,10 @@ class App extends React.Component {
   }
 
   toggleDarkMode() {
-    // this.setState({
-    //   isDarkMode: !isDarkMode
-    // })
-    console.log("clicked!");
+    this.setState({
+      isDarkMode: !this.state.isDarkMode
+    })
+    console.log(this.state.isDarkMode);
   }
 
   fetchCurrentLocation(currentLocation) {
@@ -325,6 +325,7 @@ class App extends React.Component {
       <div className="container-fluid">
         <AtwHeader
           toggleDarkMode={this.toggleDarkMode}
+          isDarkMode={this.state.isDarkMode}
         />
         <AtwFlags
           currentFlags={this.state.currentFlags}
