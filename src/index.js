@@ -155,7 +155,6 @@ class App extends React.Component {
     this.setState({
       isDarkMode: !this.state.isDarkMode
     })
-    console.log(this.state.isDarkMode);
   }
 
   fetchCurrentLocation(currentLocation) {
@@ -330,6 +329,8 @@ class App extends React.Component {
         <AtwFlags
           currentFlags={this.state.currentFlags}
           handleClick={this.handleClick}
+          toggleDarkMode={this.toggleDarkMode}
+          isDarkMode={this.state.isDarkMode}
         />
         <AtwNavbar
           filterList={this.filterList}

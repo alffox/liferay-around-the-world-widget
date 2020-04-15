@@ -14,6 +14,8 @@ class AtwFlags extends React.Component {
                 <AtwFlag
                   key={index}
                   handleClick={this.props.handleClick}
+                  toggleDarkMode={this.props.toggleDarkMode}
+                  isDarkMode={this.props.isDarkMode}
                   currentLocationIndex={index}
                   currentLocation={location.title}
                   currentCountry={location.country}

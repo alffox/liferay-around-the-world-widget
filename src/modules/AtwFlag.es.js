@@ -19,7 +19,7 @@ class AtwFlag extends React.Component {
         )}
         key={this.props.index}
         type="button"
-        className="btn btn-info m-1 flag-top"
+        className={"btn m-1 flag-top " + (this.props.isDarkMode ? 'btn-dark' : 'btn-info')}
       >
         <div className={this.props.classes} />
         {this.props.locationTitle}, {this.props.locationCountry}

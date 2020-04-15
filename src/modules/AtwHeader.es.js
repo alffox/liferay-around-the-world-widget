@@ -15,7 +15,7 @@ class AtwHeader extends React.Component {
           <h1 className="title-super position-relative d-none d-sm-block">
             Liferay Around the World
           </h1>
-          <button className={"btn position-absolute dark-mode " + (this.props.isDarkMode ? 'btn-dark' : 'btn-light')} data-toggle="tooltip" title="Dark Mode" onClick={this.props.toggleDarkMode}>
+          <button className={"btn position-absolute dark-mode " + (this.props.isDarkMode ? 'btn-dark' : 'btn-light')} data-toggle="tooltip" title="Toggle Dark Mode" onClick={this.props.toggleDarkMode}>
             <AtwIcon
               classes="lexicon-icon"
               iconName="moon"
