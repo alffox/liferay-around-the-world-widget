@@ -7,7 +7,7 @@ import AtwWeather from "./AtwWeather.es";
 class AtwWeatherCard extends React.Component {
   render() {
     return (
-      <div className="card w-100 mt-1">
+      <div className={"card w-100 mt-1 text-white " + (this.props.isDarkMode ? 'bg-dark' : 'bg-info')}>
         <AtwCardHeader
           iconName="sun"
           cardKey="Weather"
@@ -17,22 +17,22 @@ class AtwWeatherCard extends React.Component {
         {this.props.isWeatherLoading ? (
           <AtwLoadingSpinner />
         ) : (
-          <AtwWeather
-            currentLocation={this.props.currentLocation}
-            currentWeatherCountry={this.props.currentWeatherCountry}
-            currentTemperatureCelsius={this.props.currentTemperatureCelsius}
-            currentTemperatureFahrenheit={
-              this.props.currentTemperatureFahrenheit
-            }
-            setCelsius={this.props.setCelsius}
-            setFahrenheit={this.props.setFahrenheit}
-            isCelsius={this.props.isCelsius}
-            currentForecastCountry={this.props.currentForecastCountry}
-            currentWeatherDescription={this.props.currentWeatherDescription}
-            currentIconURL={this.props.currentIconURL}
-            forecastData={this.props.forecastData}
-          />
-        )}
+            <AtwWeather
+              currentLocation={this.props.currentLocation}
+              currentWeatherCountry={this.props.currentWeatherCountry}
+              currentTemperatureCelsius={this.props.currentTemperatureCelsius}
+              currentTemperatureFahrenheit={
+                this.props.currentTemperatureFahrenheit
+              }
+              setCelsius={this.props.setCelsius}
+              setFahrenheit={this.props.setFahrenheit}
+              isCelsius={this.props.isCelsius}
+              currentForecastCountry={this.props.currentForecastCountry}
+              currentWeatherDescription={this.props.currentWeatherDescription}
+              currentIconURL={this.props.currentIconURL}
+              forecastData={this.props.forecastData}
+            />
+          )}
       </div>
     );
   }

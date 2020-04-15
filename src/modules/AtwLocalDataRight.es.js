@@ -16,6 +16,8 @@ class AtwLocalDataRight extends React.Component {
           currentGrowURL={this.props.currentGrowURL}
         />
         <AtwWeatherCard
+          toggleDarkMode={this.props.toggleDarkMode}
+          isDarkMode={this.props.isDarkMode}
           isWeatherLoading={this.props.isWeatherLoading}
           currentLocation={this.props.currentLocation}
           currentWeatherCountry={this.props.currentWeatherCountry}
