@@ -11,6 +11,8 @@ class AtwPicturesCard extends React.Component {
             return (
               <AtwPicture
                 key={index}
+                toggleDarkMode={this.props.toggleDarkMode}
+                isDarkMode={this.props.isDarkMode}
                 pictureURL={picture.urls.regular}
                 pictureAuthorUsername={"@" + picture.user.username}
                 pictureAuthorURL={picture.user.links.html}

@@ -10,6 +10,8 @@ class AtwLocalData extends React.Component {
       <div className="row">
         <main />
         <AtwLocalDataLeft
+          toggleDarkMode={this.props.toggleDarkMode}
+          isDarkMode={this.props.isDarkMode}
           isPicturesLoading={this.props.isPicturesLoading}
           currentCountry={this.props.currentCountry}
           currentWikiDescription={this.props.currentWikiDescription}

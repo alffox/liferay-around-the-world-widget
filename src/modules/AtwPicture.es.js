@@ -6,7 +6,7 @@ class AtwPicture extends React.Component {
   render() {
     return (
       <LazyLoad>
-        <div className="card pictures text-center">
+        <div className={"card pictures text-center " + (this.props.isDarkMode ? 'bg-dark' : '')}>
           <a
             href={this.props.pictureURL}
             target="_blank"

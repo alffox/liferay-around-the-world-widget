@@ -16,8 +16,11 @@ class AtwLocalDataLeft extends React.Component {
         {this.props.isPicturesLoading ? (
           <AtwLoadingSpinner />
         ) : (
-          <AtwPicturesCard picturesData={this.props.picturesData} />
-        )}
+            <AtwPicturesCard
+              toggleDarkMode={this.props.toggleDarkMode}
+              isDarkMode={this.props.isDarkMode}
+              picturesData={this.props.picturesData} />
+          )}
       </div>
     );
   }
