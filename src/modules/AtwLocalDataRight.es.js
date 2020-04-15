@@ -36,6 +36,8 @@ class AtwLocalDataRight extends React.Component {
           currentLongitude={this.props.currentLongitude}
         />
         <AtwWebCamCard
+          toggleDarkMode={this.props.toggleDarkMode}
+          isDarkMode={this.props.isDarkMode}
           isWebCamLoading={this.props.isWebCamLoading}
           webCamData={this.props.webCamData}
         />

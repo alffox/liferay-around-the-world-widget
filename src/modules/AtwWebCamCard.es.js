@@ -7,7 +7,7 @@ import AtwWebCams from "./AtwWebCams.es";
 class AtwWebCamCard extends React.Component {
   render() {
     return (
-      <div className="card w-100 mt-1">
+      <div className={"card w-100 mt-1 text-white " + (this.props.isDarkMode ? 'bg-dark' : 'bg-info')}>
         <AtwCardHeader
           iconName="camera"
           cardKey="Country Webcams"
@@ -17,8 +17,8 @@ class AtwWebCamCard extends React.Component {
         {this.props.isWebCamLoading ? (
           <AtwLoadingSpinner />
         ) : (
-          <AtwWebCams webCamData={this.props.webCamData} />
-        )}
+            <AtwWebCams webCamData={this.props.webCamData} />
+          )}
       </div>
     );
   }
