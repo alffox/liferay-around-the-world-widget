@@ -5,7 +5,7 @@ class AtwFooterNewIssueFeatRequestButton extends React.Component {
     return (
       <div className="col-md-4">
         <a
-          className="btn btn-light"
+          className={"btn " + (this.props.isDarkMode ? 'btn-dark' : 'btn-light')}
           href="https://loop.liferay.com/web/guest/home/-/loop/topics/_GrowFeedback"
           target="_blank"
           rel="noopener noreferrer"

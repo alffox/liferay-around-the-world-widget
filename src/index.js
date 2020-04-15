@@ -371,7 +371,10 @@ class App extends React.Component {
           currentWikiURL={this.state.currentWikiURL}
           picturesData={this.state.picturesData}
         />
-        <AtwFooter />
+        <AtwFooter
+          toggleDarkMode={this.toggleDarkMode}
+          isDarkMode={this.state.isDarkMode}
+        />
       </div>
     );
   }

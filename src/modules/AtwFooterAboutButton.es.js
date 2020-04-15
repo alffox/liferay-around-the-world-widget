@@ -22,7 +22,7 @@ class AtwFooterAboutButton extends React.Component {
   render() {
     return (
       <div className="col-md-4">
-        <button className="btn btn-light" onClick={this.openModal}>
+        <button className={"btn " + (this.props.isDarkMode ? 'btn-dark' : 'btn-light')} onClick={this.openModal}>
           About
         </button>
       </div>
