@@ -333,6 +333,8 @@ class App extends React.Component {
           isDarkMode={this.state.isDarkMode}
         />
         <AtwNavbar
+          toggleDarkMode={this.toggleDarkMode}
+          isDarkMode={this.state.isDarkMode}
           filterList={this.filterList}
           currentLocation={this.state.currentLocation}
           currentCountry={this.state.currentCountry}
