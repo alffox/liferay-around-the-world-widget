@@ -346,6 +346,8 @@ class App extends React.Component {
           time={this.state.time}
         />
         <AtwLocalData
+          toggleDarkMode={this.toggleDarkMode}
+          isDarkMode={this.state.isDarkMode}
           isWeatherLoading={this.state.isWeatherLoading}
           isWebCamLoading={this.state.isWebCamLoading}
           isPicturesLoading={this.state.isPicturesLoading}

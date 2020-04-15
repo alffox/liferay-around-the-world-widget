@@ -3,7 +3,7 @@ import React from "react";
 class AtwGrowPageLink extends React.Component {
   render() {
     return (
-      <div className="card w-100 my-1">
+      <div className={"card w-100 my-1 text-white " + (this.props.isDarkMode ? 'bg-dark' : 'bg-info')}>
         <div className="card-body d-flex align-items-center">
           <img
             className="float-left img-fluid favicon pr-1 grow-logo"

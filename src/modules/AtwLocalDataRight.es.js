@@ -10,6 +10,8 @@ class AtwLocalDataRight extends React.Component {
     return (
       <div className="col-md-4">
         <AtwGrowPageLink
+          toggleDarkMode={this.props.toggleDarkMode}
+          isDarkMode={this.props.isDarkMode}
           currentCountry={this.props.currentCountry}
           currentGrowURL={this.props.currentGrowURL}
         />

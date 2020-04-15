@@ -17,6 +17,8 @@ class AtwLocalData extends React.Component {
           picturesData={this.props.picturesData}
         />
         <AtwLocalDataRight
+          toggleDarkMode={this.props.toggleDarkMode}
+          isDarkMode={this.props.isDarkMode}
           isWeatherLoading={this.props.isWeatherLoading}
           isWebCamLoading={this.props.isWebCamLoading}
           currentGrowURL={this.props.currentGrowURL}
