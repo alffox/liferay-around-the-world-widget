@@ -41,11 +41,6 @@ html {
   width: 40px;
 }
 
-#portlet_liferayaroundtheworld .weather {
-  color: #fff;
-  background: linear-gradient(to bottom, #90dffe 0%, #38a3d1 100%);
-}
-
 #portlet_liferayaroundtheworld .btn-temperature {
   color: #fff;
 }
