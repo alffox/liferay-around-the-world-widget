@@ -6,7 +6,7 @@ class AtwHeader extends React.Component {
   render() {
     return (
       <header className="row">
-        <div className="col-md-12 text-center text-uppercase">
+        <div className={"col-md-12 text-center text-uppercase " + (this.props.isDarkMode ? 'text-white' : '')}>
           <img
             className="float-left img-fluid favicon"
             src="/o/liferay-around-the-world/images/logo.svg"

@@ -21,8 +21,8 @@ import AtwFooter from "./modules/AtwFooter.es";
  * @return {void}
  */
 
-//const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
-const RESTAPIServer = "dummy";
+const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
+//const RESTAPIServer = "dummy";
 
 class App extends React.Component {
   constructor() {
@@ -321,7 +321,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
+      <div className={"container-fluid " + (this.state.isDarkMode ? 'widget-dark' : '')}>
         <AtwHeader
           toggleDarkMode={this.toggleDarkMode}
           isDarkMode={this.state.isDarkMode}
