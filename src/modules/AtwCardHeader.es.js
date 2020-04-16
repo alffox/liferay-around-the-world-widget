@@ -14,13 +14,16 @@ class AtwCardHeader extends React.Component {
         <p>
           <small>
             Powered by{" "}
-            <a
-              href={this.props.APIURL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.APIAttribution}
-            </a>
+            <u>
+              <a
+                href={this.props.APIURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white"
+              >
+                {this.props.APIAttribution}
+              </a>
+            </u>
           </small>
         </p>
       </div>

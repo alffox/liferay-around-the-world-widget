@@ -16,7 +16,7 @@ class AtwGrowPageLink extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="pl-1">{this.props.currentCountry} Office</span>
+            <span className="pl-1 text-white"><u>{this.props.currentCountry} Office</u></span>
           </a>
         </div>
       </div>
