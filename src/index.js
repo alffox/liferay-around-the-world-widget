@@ -21,16 +21,16 @@ import AtwFooter from "./modules/AtwFooter.es";
  * @return {void}
  */
 
-const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
-//const RESTAPIServer = "dummy";
+//const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
+const RESTAPIServer = "dummy";
 
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
       initialFlags: [],
-      currentFlags: [],
-      isDarkMode: false
+      currentFlags: []
     };
     this.handleClick = this.handleClick.bind(this);
     this.setCelsius = this.setCelsius.bind(this);
@@ -41,16 +41,23 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    this.setState({
-      initialFlags: locationsData.locations,
-      currentFlags: locationsData.locations
-    })
-
     if (localStorage.getItem("lastLocationIndex") === null) {
       localStorage.setItem("lastLocationIndex", 0);
     }
-
     const lastLocationIndex = localStorage.getItem("lastLocationIndex");
+
+    let isDarkMode = false;
+
+    if (localStorage.getItem("isDarkMode") === "true") {
+      isDarkMode = true;
+    }
+    localStorage.setItem("isDarkMode", isDarkMode);
+
+    this.setState({
+      initialFlags: locationsData.locations,
+      currentFlags: locationsData.locations,
+      isDarkMode: isDarkMode
+    })
 
     this.fetchCurrentLocation(locationsData.locations[lastLocationIndex].title);
     this.fetchCurrentCountry(
@@ -137,6 +144,16 @@ class App extends React.Component {
     localStorage.setItem("lastLocationIndex", currentLocationIndex);
   }
 
+  toggleDarkMode() {
+    this.setState({
+      isDarkMode: !this.state.isDarkMode
+    },
+      () => { //setState is async, the below ensures the localStorage is updated at the right time
+        localStorage.setItem("isDarkMode", this.state.isDarkMode);
+      }
+    );
+  }
+
   setCelsius() {
     if (!this.state.isCelsius)
       this.setState({
@@ -149,12 +166,6 @@ class App extends React.Component {
       this.setState({
         isCelsius: false
       });
-  }
-
-  toggleDarkMode() {
-    this.setState({
-      isDarkMode: !this.state.isDarkMode
-    })
   }
 
   fetchCurrentLocation(currentLocation) {
