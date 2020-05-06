@@ -1,4 +1,4 @@
-# Liferay Around the World React portlet
+# Liferay Around the World React widget
 
 ![A paper airplane](https://github.com/alffox/liferay-around-the-world-widget/blob/master/assets/images/logo.svg)
 
@@ -35,9 +35,7 @@ Npm scripts guide: https://github.com/liferay/liferay-js-toolkit/wiki/Running-bu
 
 ## Information displayed
 
-The **Navigation bar** displays the currently selected location, the current date and time at that location plus other available locations, ordered in dropdown lists by continents
-
-**Time and Date** will appear under the flags list at the top and they will indicate the current time and date on the clicked location
+The **Navigation bar** displays the currently selected location, the current date and time at that location and a search bar to find a location among the available ones
 
 **Pictures** shows selected pictures for the selected country
 
@@ -48,8 +46,6 @@ The **Navigation bar** displays the currently selected location, the current dat
 **Map** represents the currently selected location on Google Maps
 
 **Nearby web cams** shows 10 web cams snapshots in a slider, taken at the current location and time
-
-**Wiki** shows the first information for the selected country from Wikipedia.org
 
 ## Technical details
 
