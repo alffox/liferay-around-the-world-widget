@@ -1,6 +1,6 @@
 {
 	"name": "liferay-around-the-world",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Liferay Around The World",
 	"devDependencies": {
 		"liferay-npm-bundler": "^2.16.0",
