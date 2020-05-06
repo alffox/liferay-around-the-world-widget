@@ -21,8 +21,7 @@ import AtwFooter from "./modules/AtwFooter.es";
  * @return {void}
  */
 
-//const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
-const RESTAPIServer = "dummy";
+const RESTAPIServer = "https://around-the-world-backend.herokuapp.com";
 
 class App extends React.Component {
   constructor() {
