@@ -40,21 +40,24 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    if (localStorage.getItem("lastLocationIndex") === null) {
+    if (!localStorage.getItem("lastLocationIndex") || localStorage.getItem("lastLocationIndex") === "null") {
       localStorage.setItem("lastLocationIndex", 0);
     }
-    const lastLocationIndex = localStorage.getItem("lastLocationIndex");
 
+    let lastLocationIndex = localStorage.getItem("lastLocationIndex");
     let isDarkMode = false;
 
     if (localStorage.getItem("isDarkMode") === "true") {
       isDarkMode = true;
     }
+
+    localStorage.setItem("lastLocationIndex", lastLocationIndex);
     localStorage.setItem("isDarkMode", isDarkMode);
 
     this.setState({
       initialFlags: locationsData.locations,
       currentFlags: locationsData.locations,
+      lastLocationIndex: lastLocationIndex,
       isDarkMode: isDarkMode
     })
 
