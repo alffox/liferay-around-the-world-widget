@@ -361,7 +361,7 @@
             "grow_URL": "https://grow.liferay.com/people/France+Office"
         },
         {
-            "title": "Leiden",
+            "title": "Rijswijk",
             "continent": "Europe",
             "country": "The Netherlands",
             "ISO_3166_1_alpha_2": "nl",
@@ -374,8 +374,8 @@
                 "URL": "https://en.m.wikipedia.org/wiki/Netherlands"
             },
             "location": {
-                "lat": 52.160285,
-                "lon": 4.512023
+                "lat": 52.049289,
+                "lon": 4.3500533
             },
             "grow_URL": "https://grow.liferay.com/people/Netherlands+Office"
         },
