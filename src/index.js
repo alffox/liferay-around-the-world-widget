@@ -40,7 +40,7 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    if (!localStorage.getItem("lastLocationIndex") || localStorage.getItem("lastLocationIndex") === "null") {
+    if (!localStorage.getItem("lastLocationIndex") || localStorage.getItem("lastLocationIndex") === null) {
       localStorage.setItem("lastLocationIndex", 0);
     }
 
